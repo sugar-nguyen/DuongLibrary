@@ -1,21 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace DuongLibrary
 {
     /// <summary>
     /// 1 số kiểu random thiết yếu
     /// </summary>
-    public sealed class SpecialRandom
+    public static class SpecialRandom
     {
+      
         /// <summary>
         /// Tạo mã ngẫu nhiên từ Aa-9
         /// </summary>
         /// <param name="charNumber">Số lượng kí tự khởi tạo</param>
         /// <returns>string</returns>
-        public string CreateRandomCode(uint charNumber)
+        public static string CreateRandomCode(uint charNumber)
         {
             const string chars = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789";
             Random random = new Random();
@@ -28,7 +28,7 @@ namespace DuongLibrary
         /// <param name="ienumerableInt">Danh sách các số nguyên</param>
         /// <param name="take">Số phần tử cần lấy</param>
         /// <returns>Danh sách phần tử integer</returns>
-        public List<int> RandomNotDuplicate(IEnumerable<int> ienumerableInt, uint take)
+        public static List<int> RandomNotDuplicate(IEnumerable<int> ienumerableInt, uint take)
         {
             if (take > ienumerableInt.Count())
             {
@@ -49,7 +49,7 @@ namespace DuongLibrary
             }
             return rs;
         }
-        private int? RandomOnList(IEnumerable<int> ienumerableInt, List<int> includes)
+        private static int? RandomOnList(IEnumerable<int> ienumerableInt, List<int> includes)
         {
             Random random = new Random();
             if (includes.Count == ienumerableInt.Count() || ienumerableInt.Count() == 0)
