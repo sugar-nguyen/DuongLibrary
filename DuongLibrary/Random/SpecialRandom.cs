@@ -58,6 +58,26 @@ namespace DuongLibrary
             }
             return ienumerableInt.ElementAt(random.Next(ienumerableInt.Count() - 1));
         }
+
+
+        /// <summary>
+        /// sắp xếp ngẫu nhiên, extention của list
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="list"></param>
+        public static void Shuffle<T>(this IList<T> list)
+        {
+            int n = list.Count;
+            Random random = new Random();
+            while (n > 1)
+            {
+                n--;
+                int k = random.Next(n + 1);
+                T value = list[k];
+                list[k] = list[n];
+                list[n] = value;
+            }
+        }
     }
     
 }
